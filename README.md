@@ -14,6 +14,7 @@ bun run dev
 
 Key Features:
 
+```
 📡 Real time communication
 👍 Reactions to messages
 🧵 Threads / Replies system
@@ -27,3 +28,4 @@ Key Features:
 ✉️ Invite system / Invite codes
 💬 Direct messaging
 👥 User profiles
+```
