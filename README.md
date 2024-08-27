@@ -12,8 +12,6 @@ bun run dev
 
 ## Key Features
 
-Key Features:
-
 ```
 📡 Real time communication
 👍 Reactions to messages
