@@ -2,18 +2,20 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import { ConvexAuthNextjsServerProvider } from "@convex-dev/auth/nextjs/server";
-import { Toaster } from "@/components/ui/sonner";
 import { ConvexClientProvider } from "@/components/convex-client-provider";
+import { JotaiProvider } from "@/components/jotai-provider";
 
-import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 import { Modals } from "@/components/modals";
+
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Localhost 3000",
-  description: "localhost",
+  title: "TalkTree",
+  description: "Talktree",
 };
 
 export default function RootLayout({
@@ -26,9 +28,11 @@ export default function RootLayout({
       <html lang="en">
         <body className={inter.className}>
           <ConvexClientProvider>
-            <Toaster />
-            <Modals />
-            {children}
+            <JotaiProvider>
+              <Toaster />
+              <Modals />
+              {children}
+            </JotaiProvider>
           </ConvexClientProvider>
         </body>
       </html>
