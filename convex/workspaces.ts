@@ -114,7 +114,7 @@ export const update = mutation({
       )
       .unique();
 
-    if (!member || member.role === "admin") {
+    if (!member || member.role !== "admin") {
       throw new Error("Unauthorized");
     }
 
@@ -144,7 +144,7 @@ export const remove = mutation({
       )
       .unique();
 
-    if (!member || member.role === "admin") {
+    if (!member || member.role !== "admin") {
       throw new Error("Unauthorized");
     }
 
