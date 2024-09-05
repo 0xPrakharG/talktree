@@ -6,6 +6,8 @@ import dynamic from "next/dynamic";
 import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
 import { Hint } from "./hint";
 import { Thumbnail } from "./thumbnail";
+import { Toolbar } from "./toolbar";
+
 import { Doc, Id } from "../../convex/_generated/dataModel";
 
 const Renderer = dynamic(() => import("@/components/renderer"), { ssr: false });
@@ -114,6 +116,17 @@ export const Message = ({
           ) : null}
         </div>
       </div>
+      {!isEditing && (
+        <Toolbar
+          isAuthor={isAuthor}
+          isPending={false}
+          handleEdit={() => setEditingId(id)}
+          handleThread={() => {}}
+          handleDelete={() => {}}
+          handleReaction={() => {}}
+          hideThreadButton={hideThreadButton}
+        />
+      )}
     </div>
   );
 };
