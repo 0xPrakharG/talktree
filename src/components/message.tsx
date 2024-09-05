@@ -1,12 +1,12 @@
+import { useState } from "react";
 import { format, isToday, isYesterday } from "date-fns";
-import { Hint } from "./hint";
 
 import dynamic from "next/dynamic";
 
-import { Doc, Id } from "../../convex/_generated/dataModel";
 import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
+import { Hint } from "./hint";
 import { Thumbnail } from "./thumbnail";
-import { useState } from "react";
+import { Doc, Id } from "../../convex/_generated/dataModel";
 
 const Renderer = dynamic(() => import("@/components/renderer"), { ssr: false });
 
