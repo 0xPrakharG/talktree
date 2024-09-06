@@ -8,6 +8,7 @@ import { useCurrentMember } from "@/features/members/api/use-current-member";
 import { useWorkspaceId } from "@/hooks/use-workspace-id";
 
 import { Message } from "./message";
+import { ConversationHero } from "./conversation-hero";
 import { ChannelHero } from "./channel-hero";
 
 import { Id } from "../../convex/_generated/dataModel";
@@ -65,7 +66,7 @@ export const MessageList = ({
     },
     {} as Record<string, typeof data>
   );
-  
+
   return (
     <div className="flex-1 flex flex-col-reverse pb-4 overflow-y-auto messages-scrollbar">
       {Object.entries(groupedMessages || {}).map(([dateKey, messages]) => (
@@ -141,6 +142,9 @@ export const MessageList = ({
       )}
       {variant === "channel" && channelName && channelCreationTime && (
         <ChannelHero name={channelName} creationTime={channelCreationTime} />
+      )}
+      {variant === "conversation" && (
+        <ConversationHero name={memberName} image={memberImage} />
       )}
     </div>
   );
