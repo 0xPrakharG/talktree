@@ -3,6 +3,7 @@
 import { Loader } from "lucide-react";
 
 import { Thread } from "@/features/messages/components/thread";
+import { Profile } from "@/features/members/components/profile";
 
 import {
   ResizableHandle,
@@ -22,9 +23,9 @@ interface WorkspaceIdLayputProps {
 }
 
 const WorkspaceIdLayout = ({ children }: WorkspaceIdLayputProps) => {
-  const { parentMessageId, onClose } = usePanel();
+  const { parentMessageId, profileMemberId, onClose } = usePanel();
 
-  const showPanel = !!parentMessageId;
+  const showPanel = !!parentMessageId || !!profileMemberId;
 
   return (
     <div className="h-full">
@@ -51,6 +52,11 @@ const WorkspaceIdLayout = ({ children }: WorkspaceIdLayputProps) => {
                 {parentMessageId ? (
                   <Thread
                     messageId={parentMessageId as Id<"messages">}
+                    onClose={onClose}
+                  />
+                ) : profileMemberId ? (
+                  <Profile
+                    memberId={profileMemberId as Id<"members">}
                     onClose={onClose}
                   />
                 ) : (
