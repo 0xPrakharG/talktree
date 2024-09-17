@@ -14,28 +14,31 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "TalkTree",
-  description: "Talktree",
+    title: "TalkTree",
+    description: "Talktree",
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <ConvexAuthNextjsServerProvider>
-      <html lang="en">
-        <body className={inter.className}>
-          <ConvexClientProvider>
-            <JotaiProvider>
-              <Toaster />
-              <Modals />
-              {children}
-            </JotaiProvider>
-          </ConvexClientProvider>
-        </body>
-      </html>
-    </ConvexAuthNextjsServerProvider>
-  );
+    return (
+        <ConvexAuthNextjsServerProvider>
+            <html lang="en">
+                <head>
+                    <link rel="icon" href="/favicon.ico" sizes="any" />
+                </head>
+                <body className={inter.className}>
+                    <ConvexClientProvider>
+                        <JotaiProvider>
+                            <Toaster />
+                            <Modals />
+                            {children}
+                        </JotaiProvider>
+                    </ConvexClientProvider>
+                </body>
+            </html>
+        </ConvexAuthNextjsServerProvider>
+    );
 }
